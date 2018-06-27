@@ -1,0 +1,33 @@
+logging.level.root: INFO
+logging.level.org.springframework.web: INFO
+logging.level.org.hibernate: INFO
+
+# logging.level.org.hibernate: TRACE
+
+spring.datasource:
+  platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  url: jdbc:mysql://oiritaly-db.oiritaly.49a4d76e.svc.dockerapp.io:32775/datafeed?verifyservercertificate=false&useSSL=false&requireSSL=false
+  username: datafeed
+  password: datafeed
+  tomcat:
+    max-idle: 2
+    max-active: 2
+    time-between-eviction-runs-millis: 60000
+    test-on-borrow: true
+    validation-query: SELECT 1
+    test-while-idle: true
+    log-validation-errors: true
+
+oiritaly.datasource:
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://oiritaly-db.oiritaly.49a4d76e.svc.dockerapp.io:32775/datafeed?verifyservercertificate=false&useSSL=false&requireSSL=false
+  username: datafeed
+  password: datafeed
+  max-idle: 2
+  max-active: 2
+  time-between-eviction-runs-millis: 60000
+  test-on-borrow: true
+  validation-query: SELECT 1
+  test-while-idle: true
+  log-validation-errors: true

@@ -1,0 +1,75 @@
+h3 Gestione regole
+  span.text-uppercase.text-info {{ $stateParams.marketplace }}
+
+h4.page-header Elenco delle regole
+
+.panel.panel-default#filters-table
+  .panel-body
+    .table-responsive
+      table.table.table-bordered.table-striped(ng-table='amazonFiltersCtrl.params')
+        tbody
+          tr(ng-repeat='rule in $data')
+            td(data-title="'ID'")
+              strong {{rule._id}}
+            td(data-title="'Nome'") {{rule.name}}
+            td(data-title="'Data inizio'") {{rule.fromDate | date:'dd/MM/yyyy HH:mm:ss'}}
+            td(data-title="'Data fine'") {{rule.toDate | date:'dd/MM/yyyy HH:mm:ss'}}
+            td(data-title="'Attiva'").text-center
+              label.switch
+                input(type='checkbox', ng-checked=('rule.isActive'), ng-click="amazonFiltersCtrl.toggleRule(rule)")
+                span
+            td(data-title="'Elimina'").text-center
+              button.btn.btn-sm.btn-default(type="button", ng-click="amazonFiltersCtrl.deleteFilter(rule._id)")
+                em.fa.fa-trash
+            td(data-title="'Dettaglio'").text-center
+              button.btn.btn-sm.btn-info(type="button", ng-click="amazonFiltersCtrl.getRuleBrands(rule._id)") Dettaglio
+
+h4.page-header Aggiungi regola
+
+// START panel
+.panel.panel-default
+  .panel-body
+    form.form-horizontal(role='form', novalidate="", ng-submit="filters.addFilter()")
+      fieldset
+        .form-group
+          label.col-sm-2.control-label Nome
+          .col-sm-6
+            input.form-control(type='text', ng-model="amazonFiltersCtrl.ruleForm.name")
+        br
+        .form-group
+          label.col-sm-2.control-label Brands
+          .col-sm-6
+            ui-select(multiple='', ng-model='amazonFiltersCtrl.ruleForm.selectedBrands', theme='bootstrap')
+              ui-select-match(placeholder='Seleziona brand...') {{$item.name}}
+              ui-select-choices(repeat='brand in amazonFiltersCtrl.brands | filter: $select.search')
+                div(ng-bind-html='brand.name | highlight: $select.search')
+        br
+        .form-group
+          label.col-sm-2.control-label Data inizio
+          .col-sm-3
+            input.form-control(type='date', ng-model="amazonFiltersCtrl.ruleForm.fromDate", placeholder="yyyy-MM-dd")
+        br
+        .form-group
+          label.col-sm-2.control-label Data fine
+          .col-sm-3
+            input.form-control(type='date', ng-model="amazonFiltersCtrl.ruleForm.toDate", placeholder="yyyy-MM-dd")
+        br
+        .form-group
+          .col-sm-offset-2.col-lg-10
+            .checkbox.c-checkbox
+              label
+                input(type='checkbox', checked='', ng-model="amazonFiltersCtrl.ruleForm.isActive")
+                span.fa.fa-check
+                |  Attiva
+      fieldset.last-child
+        .form-group
+          .col-sm-offset-1
+            button(type="button", ng-click="amazonFiltersCtrl.saveRule(amazonFiltersCtrl.ruleForm)").btn.btn-info Aggiungi regola
+// END panel
+
+script(type="text/ng-template", id="brandsDialog")
+  div
+    h3.mt0 Brands
+    p(ng-show='ngDialogData')
+      code {{ ngDialogData }}
+

@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('io.github.divinespear:jpa-schema-gradle-plugin:+')
+    }
+}
+
+apply plugin: 'jpa-schema-generate'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('./data-feed-datamodel/src')
+        }
+        output.resourcesDir output.classesDir
+    }
+}
+generateSchema {
+    vendor = 'hibernate'
+    scriptAction = 'create'
+    packageToScan = [ 'it.oiritaly.data.models.jpa' ]
+    outputDirectory = file('../data-feed-batch-api/sql/data-feed-datamodel')
+    scriptAction = 'drop-and-create'
+    targets {
+        h2script {
+            databaseProductName = 'H2'
+            databaseMajorVersion = 1
+            databaseMinorVersion = 4
+            createOutputFileName = 'h2-create.sql'
+            dropOutputFileName = 'h2-drop.sql'
+        }
+        'mysql5-innodb' {
+            databaseProductName = 'MySQL'
+            databaseMajorVersion = 5
+            databaseMinorVersion = 1
+            properties = [
+                    'hibernate.globally_quoted_identifiers': true,
+                    'hibernate.dialect': 'org.hibernate.dialect.MySQL5InnoDBDialect'
+            ]
+        }
+    }
+}

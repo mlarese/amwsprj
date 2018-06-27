@@ -1,0 +1,53 @@
+<h3>Report delle sottomissioni
+   <span class="text-uppercase text-info">{{ $stateParams.marketplace }}</span>
+</h3>
+<div class="panel panel-default" id="submissions-table">
+   <div class="panel-heading">
+      <paneltool tool-refresh="traditional"></paneltool>
+   </div>
+   <div class="panel-body">
+      <form class="form-validate" novalidate="">
+         <div class="form-group">
+            <label>Auto-refresh delay (≥ 10000)
+               <div class="input-group">
+                  <span class="input-group-addon">ms</span>
+                  <input class="form-control" type="number" min="10000" step="1000" ng-model="amazonSubmissionsCtrl.pollerDelay" ui-validate="'$value &gt;= 10000'" required="" />
+               </div>
+            </label>
+         </div>
+      </form>
+      <div class="table-responsive">
+         <table class="table table-bordered table-striped" ng-table="amazonSubmissionsCtrl.params">
+            <tbody>
+               <tr ng-repeat="result in $data">
+                  <td data-title="'ID'">
+                     <strong>{{result.feedSubmissionId}}</strong>
+                  </td>
+                  <td data-title="'Feed type'"><code>{{result.feedType}}</code>
+                  </td>
+                  <td data-title="'Sottomesso'">{{result.submittedDate | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'Inizio processamento'">{{result.startedProcessingDate | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'Completato'">{{result.completedProcessingDate | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'Stato'">
+                     <span class="label {{ result.feedProcessingStatus == '_DONE_' ? 'label-success' : 'label-info'}}">{{result.feedProcessingStatus}}</span>
+                  </td>
+                  <td data-title="'Processed'">
+                     <strong>{{result.messagesProcessed}}</strong>
+                  </td>
+                  <td data-title="'Successful'">
+                     <strong>{{result.messagesSuccessful}}</strong>
+                  </td>
+                  <td class="text-danger" data-title="'Errors'">
+                     <strong>{{result.messagesWithError}}</strong>
+                  </td>
+                  <td data-title="'Warnings'">
+                     <strong>{{result.messagesWithWarning}}</strong>
+                  </td>
+                  <td data-title="'Report'"><a class="btn btn-info btn sm" target="_self" ng-show="result.feedSubmissionResult" ng-href="{{amazonSubmissionsCtrl.API_URL}}/amazon/feed-submission-result/{{result.feedSubmissionId}}">Download XML</a>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

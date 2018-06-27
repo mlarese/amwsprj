@@ -1,0 +1,29 @@
+.block-center.mt-xl.wd-xl
+  // START panel
+  .panel.panel-dark.panel-flat
+    .panel-heading.text-center
+      a(href="#")
+        img.block-center.img-rounded(src='app/img/logo.svg', alt='OIR Logo')
+    .panel-body
+      p.text-center.pv INSERISCI LE CREDENZIALI PER CONTINUARE.
+      form.form-validate(role='form', ng-submit="loginCtrl.login(login.loginForm.$valid)", name='login.loginForm', novalidate='').mb-lg
+        .form-group.has-feedback
+          input#inputUsername.form-control(type='text', name="account_username" placeholder='Username', autocomplete="off", ng-model="loginCtrl.user.username", required='')
+          span.fa.fa-user.form-control-feedback.text-muted
+          span.text-danger(ng-show="login.loginForm.account_username.$dirty && login.loginForm.account_username.$error.required") Campo obbligatorio
+        .form-group.has-feedback
+          input#inputPassword.form-control(type='password', name="account_password" placeholder='Password', ng-model="loginCtrl.user.password", required='')
+          span.fa.fa-lock.form-control-feedback.text-muted
+          span.text-danger(ng-show="login.loginForm.account_password.$dirty && login.loginForm.account_password.$error.required") Campo obbligatorio
+        .clearfix
+        button.btn.btn-block.btn-primary.mt-lg(type='submit') Login
+
+      .alert.alert-danger.text-center(ng-show='loginCtrl.authMsg') {{loginCtrl.authMsg}}
+  // END panel
+  .p-lg.text-center
+    span &copy;
+    span(ng-bind="app.year")
+    span  -
+    span(ng-bind="app.name")
+    br
+    span(ng-bind="app.description")

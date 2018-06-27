@@ -1,0 +1,57 @@
+<!-- START Top Navbar-->
+<nav class="navbar topnavbar" role="navigation">
+   <!-- START navbar header-->
+   <div class="navbar-header">
+      <a class="navbar-brand" href="#/app/dashboard">
+         <div class="brand-logo">
+            <img class="img-responsive" src="app/img/logo.svg" alt="OIR Logo" />
+         </div>
+         <div class="brand-logo-collapsed">
+            <img class="img-responsive" src="app/img/logo-single.svg" alt="OIR Logo" />
+         </div>
+      </a>
+   </div>
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <div class="nav-wrapper">
+      <!-- START Left navbar-->
+      <ul class="nav navbar-nav">
+         <li>
+            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+            <a class="hidden-xs" href="" trigger-resize="" ng-click="app.layout.isCollapsed = !app.layout.isCollapsed" ng-if="!app.layout.isCollapsedText">
+               <em class="fa fa-navicon"></em>
+            </a>
+            <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+            <a class="visible-xs sidebar-toggle" href="" ng-click="app.asideToggled = !app.asideToggled">
+               <em class="fa fa-navicon"></em>
+            </a>
+         </li>
+         <!--li// Button used to collapse the left sidebar. Only visible on tablet and desktops
+a(href='', ng-click="toggleUserBlock()").hidden-xs
+  em.fa.fa-user-->
+         <li>
+            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+            <a href="" ng-click="logout()">
+               <em class="fa fa-sign-out"></em>
+            </a>
+         </li>
+      </ul>
+      <!-- END Left navbar-->
+      <!-- START Right Navbar-->
+      <ul class="nav navbar-nav navbar-right">
+         <!-- Fullscreen (only desktops)-->
+         <li class="visible-lg">
+            <a href="" toggle-fullscreen="toggle-fullscreen">
+               <em class="fa fa-expand"></em>
+            </a>
+         </li>
+         <!-- START Offsidebar button-->
+         <!--lia(href='', ng-click="app.offsidebarOpen = !app.offsidebarOpen")
+  em.icon-globe-->
+         <!-- END Offsidebar menu-->
+      </ul>
+      <!-- END Right Navbar-->
+   </div>
+   <!-- END Nav wrapper-->
+</nav>
+<!-- END Top Navbar-->

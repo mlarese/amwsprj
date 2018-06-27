@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url 'https://repository.apache.org/content/repositories/snapshots/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+    }
+}
+
+
+allprojects {
+    group = 'it.oiritaly'
+    version = '1.0.0'
+    apply plugin: 'idea'
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'propdeps-eclipse'
+}
+
+subprojects {
+    // apply plugin: 'org.springframework.boot'
+    apply plugin: 'spring-boot'
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    bootRepackage.enabled = false
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter')
+        compileOnly('org.projectlombok:lombok:1.16.16')
+
+        optional('org.springframework.boot:spring-boot-configuration-processor')
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}

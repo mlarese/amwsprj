@@ -1,0 +1,42 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties.hibernate.globally_quoted_identifiers: true
+  jackson.serialization.fail-on-empty-beans: false
+  data:
+    rest.base-path: /repositories
+
+batch:
+  config.package.javaconfig: it.oiritaly.batch.configurations
+  metrics:
+    enabled: true
+    profiling.readprocesswrite.enabled: true
+
+logging:
+  path: ./logs/
+
+# spring.boot.admin.url: http://localhost:8080
+
+com:
+  amazon:
+    mws:
+      merchant-id: AY1M7XWOMCSAI
+      access-key-id: AKIAJTQYXL27XBWPYE6Q
+      secret-access-key: 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
+      mws-endpoint: https://mws-eu.amazonservices.com/
+      app-name: OIR
+      app-version: 1
+      marketplace-de-id: A1PA6795UKMFR9
+      marketplace-es-id: A1RKKUPIHCS9HS
+      marketplace-fr-id: A13V1IB3VIYZZH
+      marketplace-it-id: APJ6JRA9NG5V4
+      marketplace-uk-id: A1F83G8C2ARO7P
+      output-base-path: outputs/amazon/
+      product-data-filename: _PRODUCT_DATA.xml
+      relationship-data-filename: _RELATIONSHIP_DATA.xml
+      inventory-availability-data-filename: _INVENTORY_AVAILABILITY_DATA.xml
+      product-pricing-data-filename: _PRODUCT_PRICING_DATA.xml
+      product-image-filename: _PRODUCT_IMAGE_DATA_.xml
+      default-time-zone: Europe/Rome

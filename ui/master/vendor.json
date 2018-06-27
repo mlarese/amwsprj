@@ -1,0 +1,19 @@
+[
+  "bower_components/modernizr/modernizr.custom.js",
+  "bower_components/fontawesome/css/font-awesome.min.css",
+  "bower_components/fontawesome/fonts/*",
+  "bower_components/simple-line-icons/css/simple-line-icons.css",
+  "bower_components/simple-line-icons/fonts/*",
+  "bower_components/flatdoc/flatdoc.js",
+  "bower_components/bootstrap-filestyle/src/bootstrap-filestyle.js",
+  "bower_components/ng-table/dist/ng-table.min.js",
+  "bower_components/ng-table/dist/ng-table.min.css",
+  "bower_components/ng-table-export/ng-table-export.js",
+  "bower_components/whirl/dist/whirl.css",
+  "bower_components/screenfull/dist/screenfull.js",
+  "bower_components/angular-ui-select/dist/select.js",
+  "bower_components/angular-ui-select/dist/select.css",
+  "bower_components/ngDialog/js/ngDialog.min.js",
+  "bower_components/ngDialog/css/ngDialog.min.css",
+  "bower_components/ngDialog/css/ngDialog-theme-default.min.css"
+]

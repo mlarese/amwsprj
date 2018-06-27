@@ -1,0 +1,19 @@
+h3 Logs
+  span.text-uppercase.text-info {{ $stateParams.marketplace }}
+
+.panel.panel-default#logs-table
+  .panel-heading
+    | Log invio data feed
+    paneltool(tool-refresh="traditional")
+  .panel-body
+    .table-responsive
+      table.table.table-bordered.table-striped(ng-table='amazonLogsCtrl.params')
+        tbody
+          tr(ng-repeat='execution in $data')
+            td(data-title="'ID'")
+              strong {{execution.id}}
+            td(data-title="'Start time'") {{execution.startTime | date:'dd/MM/yyyy HH:mm:ss'}}
+            td(data-title="'Create time'") {{execution.createTime | date:'dd/MM/yyyy HH:mm:ss'}}
+            td(data-title="'End time'") {{execution.endTime | date:'dd/MM/yyyy HH:mm:ss'}}
+            td(data-title="'Status'")
+              code {{execution.status}}

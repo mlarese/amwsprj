@@ -1,0 +1,57 @@
+<div class="container-md">
+   <div class="row">
+      <div class="col-md-3">
+         <div class="panel b">
+            <div class="panel-heading bg-gray-lighter text-bold">Profilo</div>
+            <div class="list-group" ng-init="settingActive = 1"><a class="list-group-item" href="" ng-click="settingActive=1" ng-class="{'active': (settingActive == 1)}">Informazioni personali</a><a class="list-group-item" href="" ng-click="settingActive=2" ng-class="{'active': (settingActive == 2)}">Password</a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-9">
+         <div ng-show="settingActive == 1">
+            <div class="panel b">
+               <div class="panel-heading bg-gray-lighter text-bold">Informazioni personali</div>
+               <div class="panel-body">
+                  <form action="" name="profileForm" novalidate="">
+                     <div class="form-group">
+                        <label>Nome</label>
+                        <input class="form-control" type="text" ng-model="profileCtrl.profileForm.fullname" />
+                     </div>
+                     <div class="form-group">
+                        <label>Username</label>
+                        <input class="form-control" type="text" value="{{profileCtrl.user.username}}" disabled="" />
+                     </div>
+                     <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="text" ng-model="profileCtrl.profileForm.email" />
+                     </div>
+                     <button class="btn btn-info" type="button" ng-click="profileCtrl.updateProfile(profileCtrl.profileForm)">Aggiorna profilo</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div ng-show="settingActive == 2">
+            <div class="panel b">
+               <div class="panel-heading bg-gray-lighter text-bold">Password</div>
+               <div class="panel-body">
+                  <form action="" name="profileCtrl.updatePasswordForm" novalidate="">
+                     <div class="form-group">
+                        <label>Password corrente</label>
+                        <input class="form-control" type="password" ng-model="profileCtrl.passwords.oldPassword" required="" />
+                     </div>
+                     <div class="form-group">
+                        <label>Nuova password</label>
+                        <input class="form-control" type="password" ng-model="profileCtrl.passwords.newPassword" required="" />
+                     </div>
+                     <div class="form-group">
+                        <label>Conferma password</label>
+                        <input class="form-control" type="password" ng-model="profileCtrl.passwords.confirmPassword" required="" />
+                     </div>
+                     <button class="btn btn-info" type="button" ng-click="profileCtrl.updatePassword()">Aggiorna password</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

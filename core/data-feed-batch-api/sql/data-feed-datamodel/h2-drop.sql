@@ -1,0 +1,17 @@
+drop table AmazonFeedSubmission if exists;
+drop table Author if exists;
+drop table Brand if exists;
+drop table Brand_Rule if exists;
+drop table Category if exists;
+drop table CustomAttribute if exists;
+drop table DataFeed if exists;
+drop table ImageLink if exists;
+drop table Output if exists;
+drop table Price if exists;
+drop table Product if exists;
+drop table Product_CustomAttribute if exists;
+drop table Product_ImageLink if exists;
+drop table Product_Output if exists;
+drop table Root if exists;
+drop table Root_Product if exists;
+drop table Rule if exists;

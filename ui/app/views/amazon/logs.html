@@ -1,0 +1,26 @@
+<h3>Logs
+   <span class="text-uppercase text-info">{{ $stateParams.marketplace }}</span>
+</h3>
+<div class="panel panel-default" id="logs-table">
+   <div class="panel-heading">Log invio data feed
+      <paneltool tool-refresh="traditional"></paneltool>
+   </div>
+   <div class="panel-body">
+      <div class="table-responsive">
+         <table class="table table-bordered table-striped" ng-table="amazonLogsCtrl.params">
+            <tbody>
+               <tr ng-repeat="execution in $data">
+                  <td data-title="'ID'">
+                     <strong>{{execution.id}}</strong>
+                  </td>
+                  <td data-title="'Start time'">{{execution.startTime | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'Create time'">{{execution.createTime | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'End time'">{{execution.endTime | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                  <td data-title="'Status'"><code>{{execution.status}}</code>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

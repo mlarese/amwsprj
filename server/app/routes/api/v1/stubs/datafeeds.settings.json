@@ -1,0 +1,8 @@
+{
+  "host": "46.4.228.223",
+  "port": "2121",
+  "username": "feed",
+  "password": "knBESaXrN4xZv3gW",
+  "pathToXML": "/public_html/OirDataFeed_IT.xml",
+  "cronExpression": "0 0/1 * * * ?"
+}

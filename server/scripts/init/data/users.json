@@ -1,0 +1,12 @@
+{
+  "users" : [
+    {
+      "username" : "oiritaly",
+      "fullname" : "Oiritaly",
+      "email" : "support@oiritaly.com",
+      "role" : "standard",
+      "picture" : "placeholder.png",
+      "password" : "oiritaly!17"
+    }
+  ]
+}

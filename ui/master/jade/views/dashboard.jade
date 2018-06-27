@@ -1,0 +1,76 @@
+h3
+  | Dashboard test
+
+// START row
+.row
+  .col-lg-4.col-md-12
+    // START widget
+    .panel.widget(ng-class="(dashboardCtrl.health.status == 'UP') ? 'bg-success' : 'bg-danger'")
+      .row.row-table
+        .col-xs-4.text-center.pv-lg(ng-class="(dashboardCtrl.health.status == 'UP') ? 'bg-success-dark' : 'bg-danger-dark'")
+          em.fa-3x(ng-class="(dashboardCtrl.health.status == 'UP') ? 'icon-like' : 'icon-dislike'")
+        .col-xs-8.pv-lg
+          .h1.m0.text-bold {{ dashboardCtrl.health.status }}
+          .text-uppercase Sistema
+  .col-lg-4.col-md-6
+    // START widget
+    .panel.widget(ng-class="(dashboardCtrl.health.db.status == 'UP') ? 'bg-success' : 'bg-danger'")
+      .row.row-table
+        .col-xs-4.text-center.pv-lg(ng-class="(dashboardCtrl.health.db.status == 'UP') ? 'bg-success-dark' : 'bg-danger-dark'")
+          em.fa-3x(ng-class="(dashboardCtrl.health.db.status == 'UP') ? 'icon-like' : 'icon-dislike'")
+        .col-xs-8.pv-lg
+          .h1.m0.text-bold {{ dashboardCtrl.health.db.status }}
+          .text-uppercase Database
+  .col-lg-4.col-md-6
+    // START widget
+    .panel.widget(ng-class="(dashboardCtrl.health.diskSpace.status == 'UP') ? 'bg-success' : 'bg-danger'")
+      .row.row-table
+        .col-xs-4.text-center.pv-lg(ng-class="(dashboardCtrl.health.diskSpace.status == 'UP') ? 'bg-success-dark' : 'bg-danger-dark'")
+          em.fa-3x(ng-class="(dashboardCtrl.health.diskSpace.status == 'UP') ? 'icon-like' : 'icon-dislike'")
+        .col-xs-8.pv-lg
+          .h1.m0.text-bold {{ dashboardCtrl.health.diskSpace.status }}
+          .text-uppercase Spazio su disco
+// END row
+
+h4.page-header Amazon
+
+.row
+  .col-sm-12.col-md-6
+    // START widget
+    .panel.widget
+      .panel-body
+        .row.row-table
+          .col-xs-3.text-center
+            img.img-thumbnail.img-circle.img-responsive.thumb64(src="app/img/marketplaces/it.svg", alt="Amazon UK")
+          .col-xs-5.text-center
+            h5.m0 Amazon IT
+          .col-xs-4
+            button.btn.btn-labeled(type='button', ng-click="dashboardCtrl.toggleDataFeed('amazon-it')", ng-class="dashboardCtrl.marketplacesStatus['amazon-it'] ? 'btn-success' : 'btn-warning'")
+              span.btn-label
+                i.fa(ng-class="dashboardCtrl.marketplacesStatus['amazon-it'] ? 'fa-play' : 'fa-pause'")
+              | {{ dashboardCtrl.marketplacesStatus['amazon-it'] ? 'IN ESECUZIONE' : 'IN PAUSA' }}
+      a(href='#/app/amazon/amazon-it/settings').panel-footer.bg-gray-dark.bt0.clearfix.btn-block
+        span.pull-left Visualizza la configurazione
+        span.pull-right
+          em.fa.fa-chevron-circle-right
+    // END widget
+  .col-sm-12.col-md-6
+    // START widget
+    .panel.widget
+      .panel-body
+        .row.row-table
+          .col-xs-3.text-center
+            img.img-thumbnail.img-circle.img-responsive.thumb64(src="app/img/marketplaces/gb.svg", alt="Amazon UK")
+          .col-xs-5.text-center
+            h5.m0 Amazon UK
+          .col-xs-4
+            button.btn.btn-labeled(type='button', ng-click="dashboardCtrl.toggleDataFeed('amazon-uk')", ng-class="dashboardCtrl.marketplacesStatus['amazon-uk'] ? 'btn-success' : 'btn-warning'")
+              span.btn-label
+                i.fa(ng-class="dashboardCtrl.marketplacesStatus['amazon-uk'] ? 'fa-play' : 'fa-pause'")
+              | {{ dashboardCtrl.marketplacesStatus['amazon-uk'] ? 'IN ESECUZIONE' : 'IN PAUSA' }}
+      a(href='#/app/amazon/amazon-uk/settings').panel-footer.bg-gray-dark.bt0.clearfix.btn-block
+        span.pull-left Visualizza la configurazione
+        span.pull-right
+          em.fa.fa-chevron-circle-right
+    // END widget
+

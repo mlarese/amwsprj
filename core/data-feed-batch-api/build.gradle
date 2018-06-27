@@ -1,0 +1,39 @@
+// apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile project(':data-feed-amazon-job')
+    compile project(':data-feed-amazon-submission-report-job')
+    compile project(':data-feed-amazon-mws')
+    compile project(':data-feed-datamodel')
+
+//    compile('de.codecentric:spring-boot-admin-server:1.4.5')
+//    compile('de.codecentric:spring-boot-admin-server-ui:1.4.5')
+//    compile('de.codecentric:spring-boot-admin-starter-client:1.4.5')
+    compile('de.codecentric:spring-boot-starter-batch-web:1.4.0.RELEASE')
+
+    compile('io.springfox:springfox-swagger2:2.6.1')
+    compile('io.springfox:springfox-swagger-ui:2.6.1')
+
+    compile('org.springframework:spring-oxm')
+
+    compile('org.quartz-scheduler:quartz:2.2.3')
+    compile('org.springframework:spring-context-support')
+
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+
+    runtime('com.h2database:h2')
+    runtime('mysql:mysql-connector-java:5.1.40')
+
+//    compile('commons-codec:commons-codec')
+//    compile('org.apache.httpcomponents:httpclient')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+jar {
+    baseName = 'batch-api'
+    version = '1.0.1-SNAPSHOT'
+}
+
+bootRepackage.enabled = true

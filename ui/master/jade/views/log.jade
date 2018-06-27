@@ -1,0 +1,12 @@
+h3
+  | Log di sistema
+
+// START row
+.row
+  .col-lg-12
+    p
+      .btn-group
+        button.btn.btn-default(type='button', ng-click="logCtrl.goToTop()") Vai all'inizio
+        button.btn.btn-default(type='button', ng-click="logCtrl.goToBottom()") Vai alla fine
+    pre#log.pre-scrollable.
+      {{ logCtrl.log}}

@@ -1,0 +1,6 @@
+include 'data-feed-batch-api'
+include 'data-feed-datamodel'
+include 'data-feed-amazon-job'
+include 'data-feed-amazon-submission-report-job'
+include 'data-feed-amazon-mws'
+

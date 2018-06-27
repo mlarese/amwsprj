@@ -1,0 +1,94 @@
+[
+  {
+    "text": "Dashboard",
+    "sref": "app.dashboard",
+    "icon": "fa fa-dashboard",
+    "translate": "sidebar.nav.DASHBOARD"
+  },
+  {
+    "text": "Apri un ticket",
+    "sref": "app.issues",
+    "icon": "fa fa-bitbucket"
+  },
+  {
+    "text": "Profilo",
+    "sref": "app.profile",
+    "icon": "fa fa-user"
+  },
+  {
+    "text": "Marketplaces",
+    "heading": "true"
+  },
+  {
+    "text": "Amazon IT",
+    "label": "label label-info",
+    "icon": "fa fa-globe",
+    "sref": "#",
+    "submenu": [
+      { "text": "Report sottomissioni",
+        "icon": "fa fa-upload",
+        "sref": "app.amazon-it-submissions",
+        "params": {
+          "marketplace": "amazon-it"
+        }
+      },
+      { "text": "Log",
+        "icon": "fa fa-info-circle",
+        "sref": "app.amazon-it-logs",
+        "params": {
+          "marketplace": "amazon-it"
+        }
+      },
+      { "text": "Regole",
+        "icon": "fa fa-pencil",
+        "sref": "app.amazon-it-filters",
+        "params": {
+          "marketplace": "amazon-it"
+        }
+      },
+      { "text": "Configurazione",
+        "icon": "fa fa-cogs",
+        "sref": "app.amazon-it-settings",
+        "params": {
+          "marketplace": "amazon-it"
+        }
+      }
+    ]
+  },
+  {
+    "text": "Amazon UK",
+    "label": "label label-info",
+    "icon": "fa fa-globe",
+    "sref": "#",
+    "submenu": [
+      { "text": "Report sottomissioni",
+        "icon": "fa fa-upload",
+        "sref": "app.amazon-uk-submissions",
+        "params": {
+          "marketplace": "amazon-uk"
+        }
+      },
+      { "text": "Log",
+        "icon": "fa fa-info-circle",
+        "sref": "app.amazon-uk-logs",
+        "params": {
+          "marketplace": "amazon-uk"
+        }
+      },
+      { "text": "Regole",
+        "icon": "fa fa-pencil",
+        "sref": "app.amazon-uk-filters",
+        "params": {
+          "marketplace": "amazon-uk"
+        }
+      },
+      { "text": "Configurazione",
+        "icon": "fa fa-cogs",
+        "sref": "app.amazon-uk-settings",
+        "params": {
+          "marketplace": "amazon-uk"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+logging.level.root: INFO
+logging.level.org.springframework.web: INFO
+logging.level.org.hibernate: INFO
+
+spring.datasource:
+  platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  url: jdbc:mysql://localhost:3306/datafeed?verifyservercertificate=false&useSSL=false&requireSSL=false
+  username: oiritaly
+  password: mgMU5sE0dMrdYqt
+  tomcat:
+    time-between-eviction-runs-millis: 60000
+    test-on-borrow: true
+    validation-query: SELECT 1
+    test-while-idle: true
+    log-validation-errors: true
+
+oiritaly.datasource:
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/datafeed?verifyservercertificate=false&useSSL=false&requireSSL=false
+  username: oiritaly
+  password: mgMU5sE0dMrdYqt
+  time-between-eviction-runs-millis: 60000
+  test-on-borrow: true
+  validation-query: SELECT 1
+  test-while-idle: true
+  log-validation-errors: true

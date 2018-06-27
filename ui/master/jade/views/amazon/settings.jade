@@ -1,0 +1,93 @@
+h3 Configurazione
+  span.text-uppercase.text-info {{ $stateParams.marketplace }}
+
+// START panel
+.panel.panel-default
+  .panel-body
+    form.form-horizontal(role='form', novalidate="", name="settingsForm")
+      fieldset
+        legend Impostazioni FTP e scheduler
+        .form-group
+          label.col-sm-2.control-label Host
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.settingsForm.ftp_host")
+            span.help-block Ad es. 127.0.0.1
+        br
+        .form-group
+          label.col-sm-2.control-label Utente
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.settingsForm.ftp_user")
+        br
+        .form-group
+          label.col-sm-2.control-label Password
+          .col-sm-4
+            input.form-control(type='password', ng-model="amazonSettingsCtrl.settingsForm.ftp_password")
+        br
+        .form-group
+          label.col-sm-2.control-label Porta
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.settingsForm.ftp_port")
+        br
+        .form-group
+          label.col-sm-2.control-label Path assoluto al file XML
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.settingsForm.path_to_file")
+            span.help-block Ad es. /var/www/feed.xml
+        br
+        .form-group
+          label.col-sm-2.control-label Pianificazione del feed
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.settingsForm.cron_expression")
+            a(href="http://www.cronmaker.com/", target="_blank") Crea espressione cron
+      fieldset.last-child
+        .form-group
+          .col-sm-offset-2
+            button(type="button", ng-click="amazonSettingsCtrl.updateSettings(amazonSettingsCtrl.settingsForm)").btn.btn-info Salva impostazioni
+// END panel
+
+.panel.panel-default
+  .panel-body
+    form.form-horizontal(role='form', novalidate="", name="settingsForm")
+      fieldset
+        legend Avvio manuale del flusso di invio del feed
+        .form-group
+          label.col-sm-2.control-label Host
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.form.ftp_host")
+            span.help-block Ad es. 127.0.0.1
+        br
+        .form-group
+          label.col-sm-2.control-label Utente
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.form.ftp_user")
+        br
+        .form-group
+          label.col-sm-2.control-label Password
+          .col-sm-4
+            input.form-control(type='password', ng-model="amazonSettingsCtrl.form.ftp_password")
+        br
+        .form-group
+          label.col-sm-2.control-label Porta
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.form.ftp_port")
+        br
+        .form-group
+          label.col-sm-2.control-label Path assoluto al file XML
+          .col-sm-4
+            input.form-control(type='text', ng-model="amazonSettingsCtrl.form.path_to_file")
+            span.help-block Ad es. /var/www/feed.xml
+        br
+        .form-group
+          label.col-sm-2.control-label Marketplace
+          .col-sm-4
+            select.form-control(ng-model="amazonSettingsCtrl.form.marketplace_id")
+              option(value='A1F83G8C2ARO7P') Amazon UK
+              option(value='A1PA6795UKMFR9') Amazon DE
+              option(value='A1RKKUPIHCS9HS') Amazon ES
+              option(value='A13V1IB3VIYZZH') Amazon FR
+              option(value='APJ6JRA9NG5V4', selected) Amazon IT
+      fieldset.last-child
+        .form-group
+          .col-sm-offset-2
+            button.btn.btn-sm.btn-info(type='button', ng-click="amazonSettingsCtrl.startDataFeed(amazonSettingsCtrl.form)") Esegui
+  // END panel

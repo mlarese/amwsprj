@@ -1,0 +1,130 @@
+<h3>Configurazione
+   <span class="text-uppercase text-info">{{ $stateParams.marketplace }}</span>
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-body">
+      <form class="form-horizontal" role="form" novalidate="" name="settingsForm">
+         <fieldset>
+            <legend>Impostazioni FTP e scheduler</legend>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Host</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.settingsForm.ftp_host" />
+                  <span class="help-block">Ad es. 127.0.0.1</span>
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Utente</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.settingsForm.ftp_user" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Password</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="password" ng-model="amazonSettingsCtrl.settingsForm.ftp_password" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Porta</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.settingsForm.ftp_port" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Path assoluto al file XML</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.settingsForm.path_to_file" />
+                  <span class="help-block">Ad es. /var/www/feed.xml</span>
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Pianificazione del feed</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.settingsForm.cron_expression" /><a href="http://www.cronmaker.com/" target="_blank">Crea espressione cron</a>
+               </div>
+            </div>
+         </fieldset>
+         <fieldset class="last-child">
+            <div class="form-group">
+               <div class="col-sm-offset-2">
+                  <button class="btn btn-info" type="button" ng-click="amazonSettingsCtrl.updateSettings(amazonSettingsCtrl.settingsForm)">Salva impostazioni</button>
+               </div>
+            </div>
+         </fieldset>
+      </form>
+   </div>
+</div>
+<!-- END panel-->
+<div class="panel panel-default">
+   <div class="panel-body">
+      <form class="form-horizontal" role="form" novalidate="" name="settingsForm">
+         <fieldset>
+            <legend>Avvio manuale del flusso di invio del feed</legend>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Host</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.form.ftp_host" />
+                  <span class="help-block">Ad es. 127.0.0.1</span>
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Utente</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.form.ftp_user" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Password</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="password" ng-model="amazonSettingsCtrl.form.ftp_password" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Porta</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.form.ftp_port" />
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Path assoluto al file XML</label>
+               <div class="col-sm-4">
+                  <input class="form-control" type="text" ng-model="amazonSettingsCtrl.form.path_to_file" />
+                  <span class="help-block">Ad es. /var/www/feed.xml</span>
+               </div>
+            </div>
+            <br/>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Marketplace</label>
+               <div class="col-sm-4">
+                  <select class="form-control" ng-model="amazonSettingsCtrl.form.marketplace_id">
+                     <option value="A1F83G8C2ARO7P">Amazon UK</option>
+                     <option value="A1PA6795UKMFR9">Amazon DE</option>
+                     <option value="A1RKKUPIHCS9HS">Amazon ES</option>
+                     <option value="A13V1IB3VIYZZH">Amazon FR</option>
+                     <option value="APJ6JRA9NG5V4">Amazon IT</option>
+                  </select>
+               </div>
+            </div>
+         </fieldset>
+         <fieldset class="last-child">
+            <div class="form-group">
+               <div class="col-sm-offset-2">
+                  <button class="btn btn-sm btn-info" type="button" ng-click="amazonSettingsCtrl.startDataFeed(amazonSettingsCtrl.form)">Esegui</button>
+               </div>
+            </div>
+         </fieldset>
+      </form>
+   </div>
+   <!-- END panel-->
+</div>

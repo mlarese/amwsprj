@@ -1,0 +1,9 @@
+dependencies {
+    compile project(':data-feed-datamodel')
+    compile project(':data-feed-amazon-mws')
+    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework:spring-oxm')
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+
+    runtime('com.h2database:h2')
+}

@@ -1,0 +1,13 @@
+dependencies {
+    compile project(':data-feed-datamodel')
+    compile project(':data-feed-amazon-mws')
+    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework:spring-oxm')
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+
+    runtime('com.h2database:h2')
+
+    testCompile 'org.xmlunit:xmlunit-core:2.3.0'
+    testCompile 'org.xmlunit:xmlunit-matchers:2.3.0'
+}

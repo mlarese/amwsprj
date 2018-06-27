@@ -1,0 +1,20 @@
+{
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  "sidebar": {
+    "WELCOME": "Ciao",
+    "heading": {
+      "HEADER": "Main Navigation"
+    },
+    "nav": {
+      "DASHBOARD": "Dashboard",
+      "CHARTS": "Charts",
+      "PROFILE": "Profile",
+      "PROJECTS": "Projects",
+      "DOCUMENTATION": "Documentation"
+    }
+  }
+}

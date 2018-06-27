@@ -1,0 +1,41 @@
+.container-md
+  .row
+    .col-md-3
+      .panel.b
+        .panel-heading.bg-gray-lighter.text-bold Profilo
+        .list-group(ng-init="settingActive = 1")
+          a.list-group-item(href='', ng-click="settingActive=1", ng-class="{'active': (settingActive == 1)}") Informazioni personali
+          a.list-group-item(href='', ng-click="settingActive=2", ng-class="{'active': (settingActive == 2)}") Password
+    .col-md-9
+      div(ng-show="settingActive == 1")
+        .panel.b
+          .panel-heading.bg-gray-lighter.text-bold Informazioni personali
+          .panel-body
+            form(action="", name="profileForm", novalidate="")
+              .form-group
+                label Nome
+                input.form-control(type="text", ng-model="profileCtrl.profileForm.fullname")
+              .form-group
+                label Username
+                input.form-control(type="text", value="{{profileCtrl.user.username}}", disabled='')
+              .form-group
+                label Email
+                input.form-control(type="text", ng-model="profileCtrl.profileForm.email")
+              button(type="button", ng-click="profileCtrl.updateProfile(profileCtrl.profileForm)").btn.btn-info Aggiorna profilo
+
+      div(ng-show="settingActive == 2")
+        .panel.b
+          .panel-heading.bg-gray-lighter.text-bold Password
+          .panel-body
+            form(action="", name="profileCtrl.updatePasswordForm", novalidate="")
+              .form-group
+                label Password corrente
+                input.form-control(type="password", ng-model="profileCtrl.passwords.oldPassword", required='')
+              .form-group
+                label Nuova password
+                input.form-control(type="password", ng-model="profileCtrl.passwords.newPassword", required='')
+              .form-group
+                label Conferma password
+                input.form-control(type="password", ng-model="profileCtrl.passwords.confirmPassword", required='')
+
+              button(type="button", ng-click="profileCtrl.updatePassword()").btn.btn-info Aggiorna password

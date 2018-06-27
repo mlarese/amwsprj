@@ -1,0 +1,36 @@
+h3 Report delle sottomissioni
+  span.text-uppercase.text-info {{ $stateParams.marketplace }}
+
+.panel.panel-default#submissions-table
+  .panel-heading
+    paneltool(tool-refresh="traditional")
+  .panel-body
+    form.form-validate(novalidate="")
+      .form-group
+        label Auto-refresh delay (≥ 10000)
+          .input-group
+            span.input-group-addon ms
+            input.form-control(type='number', min="10000", step="1000", ng-model="amazonSubmissionsCtrl.pollerDelay", ui-validate="'$value >= 10000'", required='')
+    .table-responsive
+      table.table.table-bordered.table-striped(ng-table='amazonSubmissionsCtrl.params')
+        tbody
+          tr(ng-repeat='result in $data')
+            td(data-title="'ID'")
+              strong {{result.feedSubmissionId}}
+            td(data-title="'Feed type'")
+              code {{result.feedType}}
+            td(data-title="'Sottomesso'") {{result.submittedDate | date:'MM/dd/yyyy HH:mm:ss'}}
+            td(data-title="'Inizio processamento'") {{result.startedProcessingDate | date:'MM/dd/yyyy HH:mm:ss'}}
+            td(data-title="'Completato'") {{result.completedProcessingDate | date:'MM/dd/yyyy HH:mm:ss'}}
+            td(data-title="'Stato'")
+              span.label(class="{{ result.feedProcessingStatus == '_DONE_' ? 'label-success' : 'label-info'}}") {{result.feedProcessingStatus}}
+            td(data-title="'Processed'")
+              strong {{result.messagesProcessed}}
+            td(data-title="'Successful'")
+              strong {{result.messagesSuccessful}}
+            td.text-danger(data-title="'Errors'")
+              strong {{result.messagesWithError}}
+            td(data-title="'Warnings'")
+              strong {{result.messagesWithWarning}}
+            td(data-title="'Report'")
+              a(target='_self', ng-show='result.feedSubmissionResult', ng-href="{{amazonSubmissionsCtrl.API_URL}}/amazon/feed-submission-result/{{result.feedSubmissionId}}").btn.btn-info.btn.sm Download XML
