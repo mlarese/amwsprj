@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- parent>
+        <groupId>it.cbt</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.1.0</version>
+    </parent -->
+
+    <groupId>it.cbt.wr</groupId>
+    <artifactId>test-rules</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>Test :: Business Rules</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <wr.version>5.3.2</wr.version>
+        <janino-script-engine.version>1.1.0</janino-script-engine.version>
+        <documents-engine-ws.version>1.6.1</documents-engine-ws.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-api</artifactId>
+            <version>${wr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-jcr-impl</artifactId>
+            <version>${wr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-web</artifactId>
+            <version>${wr.version}</version>
+            <classifier>classes</classifier>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.pdfbox</groupId>
+                    <artifactId>pdfbox</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.pdfbox</groupId>
+                    <artifactId>pdfbox-debugger</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.pdfbox</groupId>
+                    <artifactId>pdfbox-tools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-csv</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpmime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>it.cbt.wr</groupId>
+                    <artifactId>wr-saml-sso-fragment</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-web</artifactId>
+            <version>${wr.version}</version>
+            <type>war</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt</groupId>
+            <artifactId>janino-script-engine</artifactId>
+            <version>${janino-script-engine.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.documents.engine.ws</groupId>
+            <artifactId>documents-engine-ws-client</artifactId>
+            <version>${documents-engine-ws.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpmime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.documents.engine</groupId>
+            <artifactId>documents-engine-ws</artifactId>
+            <version>${documents-engine-ws.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.5.0-b01</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-digital-signature-module</artifactId>
+            <version>1.3.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+                    <artifactId>dss-service</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-mail-module</artifactId>
+            <version>2.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt</groupId>
+            <artifactId>mail-ws-client</artifactId>
+            <version>2.9.1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>it.cbt.wr</groupId>
+            <artifactId>wr-ws-rest-client</artifactId>
+            <version>${wr.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-osgi -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-osgi</artifactId>
+            <version>4.2.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.2.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.auxilii.msgparser/msgparser -->
+        <dependency>
+            <groupId>com.auxilii.msgparser</groupId>
+            <artifactId>msgparser</artifactId>
+            <version>1.1.15</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.simplejavamail/simple-java-mail -->
+        <dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>simple-java-mail</artifactId>
+            <version>5.0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.commons-csv</artifactId>
+            <version>1.0-r706899_5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-osgi -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-osgi</artifactId>
+            <version>1.11.265</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-codec-http</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpcore</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>2.20.1</version>
+        </dependency>
+    </dependencies>
+</project>
